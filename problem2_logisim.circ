@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="5.0.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v5.0.0(https://github.com/logisim-evolution/).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#FPArithmetic" name="4"/>
+  <lib desc="#Memory" name="5"/>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#TTL" name="7"/>
+  <lib desc="#TCL" name="8"/>
+  <lib desc="#Base" name="9"/>
+  <lib desc="#BFH-Praktika" name="10"/>
+  <lib desc="#Input/Output-Extra" name="11"/>
+  <lib desc="#Soc" name="12"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool map="Button2" name="Poke Tool"/>
+    <tool map="Button3" name="Menu Tool"/>
+    <tool map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool name="Poke Tool"/>
+    <tool name="Edit Tool"/>
+    <tool name="Wiring Tool"/>
+    <tool name="Text Tool"/>
+    <tool name="Image"/>
+    <sep/>
+    <tool name="Pin"/>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="type" val="output"/>
+    </tool>
+    <sep/>
+    <tool name="NOT Gate"/>
+    <tool name="AND Gate"/>
+    <tool name="OR Gate"/>
+    <tool name="XOR Gate"/>
+    <tool name="NAND Gate"/>
+    <tool name="NOR Gate"/>
+    <sep/>
+    <tool name="D Flip-Flop"/>
+    <tool name="Register"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(330,220)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="0" loc="(330,240)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="0" loc="(330,260)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="c"/>
+    </comp>
+    <comp lib="0" loc="(330,280)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="d"/>
+    </comp>
+    <comp lib="0" loc="(330,300)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="e"/>
+    </comp>
+    <comp lib="0" loc="(330,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="f"/>
+    </comp>
+    <comp lib="0" loc="(330,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="g"/>
+    </comp>
+    <comp lib="0" loc="(330,360)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="h"/>
+    </comp>
+    <comp lib="0" loc="(330,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="ch0"/>
+    </comp>
+    <comp lib="0" loc="(330,400)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="ch1"/>
+    </comp>
+    <comp lib="0" loc="(330,420)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="ch2"/>
+    </comp>
+    <comp lib="0" loc="(690,220)" name="Pin">
+      <a name="appearance" val="classic"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="data"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp loc="(620,220)" name="problem2"/>
+    <wire from="(330,220)" to="(400,220)"/>
+    <wire from="(330,240)" to="(400,240)"/>
+    <wire from="(330,260)" to="(400,260)"/>
+    <wire from="(330,280)" to="(400,280)"/>
+    <wire from="(330,300)" to="(400,300)"/>
+    <wire from="(330,320)" to="(400,320)"/>
+    <wire from="(330,340)" to="(400,340)"/>
+    <wire from="(330,360)" to="(400,360)"/>
+    <wire from="(330,380)" to="(400,380)"/>
+    <wire from="(330,400)" to="(400,400)"/>
+    <wire from="(330,420)" to="(400,420)"/>
+    <wire from="(620,220)" to="(690,220)"/>
+  </circuit>
+  <vhdl appearance="logisim_evolution" name="problem2">library ieee;&#13;
+use ieee.std_logic_1164.all;&#13;
+&#13;
+entity problem2 is&#13;
+    port (&#13;
+        a, b, c, d, e, f, g, h : in  std_logic;&#13;
+        ch0, ch1, ch2          : in  std_logic;&#13;
+        data                   : out std_logic&#13;
+    );&#13;
+end problem2;&#13;
+&#13;
+architecture bhv of problem2 is&#13;
+begin&#13;
+    process(a, b, c, d, e, f, g, h, ch0, ch1, ch2)&#13;
+    begin&#13;
+        if ch0 = '0' then&#13;
+            if ch1 = '0' then&#13;
+                if ch2 = '0' then&#13;
+                    data &lt;= a;&#13;
+                else&#13;
+                    data &lt;= b;&#13;
+                end if;&#13;
+            else&#13;
+                if ch2 = '0' then&#13;
+                    data &lt;= c;&#13;
+                else&#13;
+                    data &lt;= d;&#13;
+                end if;&#13;
+            end if;&#13;
+        else&#13;
+            if ch1 = '0' then&#13;
+                if ch2 = '0' then&#13;
+                    data &lt;= e;&#13;
+                else&#13;
+                    data &lt;= f;&#13;
+                end if;&#13;
+            else&#13;
+                if ch2 = '0' then&#13;
+                    data &lt;= g;&#13;
+                else&#13;
+                    data &lt;= h;&#13;
+                end if;&#13;
+            end if;&#13;
+        end if;&#13;
+    end process;&#13;
+end bhv;&#13;
+</vhdl>
+</project>
